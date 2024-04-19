@@ -12,7 +12,7 @@ class Main_Desktop extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10.0),
       height: screenHeight / 1.2,
-      constraints: BoxConstraints(minHeight: 400.0),
+      constraints: BoxConstraints(minHeight: 461.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -45,7 +45,7 @@ class Main_Desktop extends StatelessWidget {
             child: Container(
               height: screenWidth,
               child: Image.asset(
-                "assets/images/WhatsApp Image 2023-11-21 at 1.08.48 AM (3).jpg",
+                "assets/images/pink.jpg",
                 width: screenWidth / 2,
               ),
             ),
