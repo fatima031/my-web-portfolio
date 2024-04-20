@@ -3,6 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:portfolio/Widgets/custome_textField.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/size.dart';
+import 'dart:js' as js;
+
+import 'package:portfolio/constants/sns_links.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
@@ -27,8 +30,9 @@ class ContactSection extends StatelessWidget {
             height: 50,
           ),
           ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 700,
-              maxHeight: 100),
+              constraints: const BoxConstraints(
+                maxWidth: 700,
+                maxHeight: 100),
               child: LayoutBuilder(builder: (context, Constraints) {
                 if (Constraints.maxWidth >= kMinDesktopWidth) {
                   return buildnameEmailFieldDesktop();
@@ -42,7 +46,7 @@ class ContactSection extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: 700),
             child: const CustomeTextField(
               hintText: "Your Message",
-              maxLines: 20,
+              maxLines: 15,
             ),
           ),
 
@@ -78,25 +82,32 @@ class ContactSection extends StatelessWidget {
             alignment: WrapAlignment.center,
             children: [
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.gitHub]);
+
+                  },
                   child: Image.asset(
                     "assets/images/github.png",
                     width: 28,
                   )),
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.facebook]);
+                  },
                   child: Image.asset(
                     "assets/images/facebook.png",
                     width: 28,
                   )),
               InkWell(
-                  onTap: () {},
+                  onTap: () {js.context.callMethod('open', [SnsLinks.instagram]);},
                   child: Image.asset(
                     "assets/images/instagram.png",
                     width: 28,
                   )),
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.linkedIn]);
+                  },
                   child: Image.asset(
                     "assets/images/linkedin.png",
                     width: 28,
@@ -118,7 +129,7 @@ class ContactSection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 10,
+          width: 15,
         ),
         //email
         Flexible(
